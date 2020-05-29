@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public string toFormat = "Coins: ";
     [SerializeField]
-    private Client _client = null;
+    private Client[] _clients = null;
 
     private Text _text;
     private float _coins = 0;
@@ -19,9 +19,10 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        if (_client != null) 
-            _client.EndEating += Client_EndEating;
-
+        foreach (var client in _clients)
+        {
+            client.EndEating += Client_EndEating;
+        }
         _text.text = string.Concat(toFormat, _coins.ToString());
     }
 
