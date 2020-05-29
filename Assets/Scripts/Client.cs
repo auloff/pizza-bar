@@ -41,7 +41,7 @@ namespace PizzaBar.Persons
 
             if (_eatingPizza.PizzaObj.transform.position != arm.position)
             {
-                _eatingPizza.PizzaObj.transform.position = Vector3.Lerp(_eatingPizza.PizzaObj.transform.position, arm.position, pizzaMoveDelay* Time.deltaTime);
+                _eatingPizza.PizzaObj.transform.position = Vector3.MoveTowards(_eatingPizza.PizzaObj.transform.position, arm.position, pizzaMoveDelay* Time.deltaTime);
             }
             else
             {
